@@ -1,0 +1,15 @@
+class Solution {
+    public boolean searchMatrix(int[][] arr, int x) {
+       int row = arr.length; int col= arr[0].length;
+       int low =0, high = row*col-1;
+       while(low<=high){
+           int mid =(low+high)/2;
+           int midrow= mid/col;
+           int midcol= mid%col;
+           if(arr[midrow][midcol]==x) return true;
+           else if(arr[midrow][midcol]>x) high = mid-1;
+           else  low= mid+1;
+       } return false;
+        
+    }
+}
